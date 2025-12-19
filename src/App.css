@@ -1,0 +1,283 @@
+/* App.css（Bright version） */
+
+:root {
+  --bg1: #fff7fb;
+  --bg2: #f0f9ff;
+  --panel: #ffffff;
+  --border: #e5e7eb;
+  --text: #111827;
+  --muted: #6b7280;
+
+  --accent: #ec4899;   /* pink */
+  --accent2: #38bdf8;  /* sky blue */
+
+  --radius: 18px;
+  --shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* ---- page ---- */
+.page {
+  min-height: 100vh;
+  padding: 32px 16px;
+  background:
+    radial-gradient(800px 400px at 20% 0%, #fde2f3, transparent 60%),
+    radial-gradient(800px 400px at 90% 10%, #dbeafe, transparent 60%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
+  color: var(--text);
+  display: grid;
+  place-items: center;
+  gap: 20px;
+}
+
+/* ---- theme ---- */
+.theme-idle {
+  --accent: #ec4899;
+  --accent2: #38bdf8;
+}
+.theme-大吉 {
+  --accent: #facc15; /* yellow */
+  --accent2: #fb7185; /* rose */
+}
+.theme-中吉 {
+  --accent: #34d399; /* green */
+  --accent2: #38bdf8;
+}
+.theme-小吉 {
+  --accent: #818cf8; /* indigo */
+  --accent2: #34d399;
+}
+.theme-吉 {
+  --accent: #38bdf8;
+  --accent2: #818cf8;
+}
+.theme-凶 {
+  --accent: #fb7185;
+  --accent2: #f87171;
+}
+
+/* ---- header ---- */
+.header {
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(32px, 6vw, 44px);
+  font-weight: 900;
+  letter-spacing: 0.1em;
+}
+
+.subtitle {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* ---- box ---- */
+.box {
+  width: min(520px, 92vw);
+  background: var(--panel);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+
+/* ---- ticket frame ---- */
+.ticketFrame {
+  background: #fafafa;
+  border-radius: 14px;
+  padding: 18px;
+  border: 1px dashed var(--border);
+}
+
+/* ---- ticket ---- */
+.ticket {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 20px 16px;
+  text-align: center;
+  border: 2px solid color-mix(in srgb, var(--accent) 40%, #ffffff);
+}
+
+.ticket.revealed {
+  border-color: var(--accent);
+}
+
+/* ---- text ---- */
+.ticketLabel {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.ticketLabel.big {
+  margin: 10px 0;
+  font-size: clamp(40px, 8vw, 64px);
+  font-weight: 900;
+  color: var(--accent);
+}
+
+.ticketMsg {
+  font-size: 15px;
+  color: #374151;
+}
+
+/* ---- badge ---- */
+.badge {
+  margin-top: 14px;
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  background: color-mix(in srgb, var(--accent) 25%, #ffffff);
+  color: var(--accent);
+}
+
+/* ---- actions ---- */
+.actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+/* ---- buttons ---- */
+.btn {
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.1s ease, opacity 0.2s ease;
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn.primary {
+  background: linear-gradient(
+    90deg,
+    var(--accent),
+    var(--accent2)
+  );
+  color: white;
+}
+
+.btn.ghost {
+  background: #ffffff;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+}
+
+/* ---- footer ---- */
+.footer {
+  margin-top: 4px;
+}
+
+.hint {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* ===== Responsive tweaks ===== */
+
+/* タブレット以下 */
+@media (max-width: 768px) {
+  .page {
+    padding: 24px 14px;
+    gap: 16px;
+  }
+
+  .box {
+    padding: 16px;
+  }
+
+  .ticketFrame {
+    padding: 14px;
+  }
+
+  .ticket {
+    padding: 16px 14px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+  }
+
+  .ticketMsg {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+}
+
+/* スマホ */
+@media (max-width: 480px) {
+  .page {
+    padding: 18px 12px;
+    gap: 14px;
+  }
+
+  .title {
+    letter-spacing: 0.06em; /* スマホだと広すぎるので少し詰める */
+  }
+
+  .box {
+    width: 100%;
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  .ticketFrame {
+    padding: 12px;
+  }
+
+  .ticket {
+    padding: 14px 12px;
+  }
+
+  .ticketLabel {
+    font-size: 13px;
+  }
+
+  .ticketMsg {
+    font-size: 14px;
+  }
+
+  /* ボタン2つを縦並びにして押しやすくする */
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 15px;
+  }
+
+  .hint {
+    font-size: 11px;
+  }
+}
+
+/* さらに小さい端末（iPhone SE等） */
+@media (max-width: 360px) {
+  .page {
+    padding: 14px 10px;
+  }
+
+  .ticketLabel.big {
+    font-size: clamp(34px, 10vw, 54px);
+  }
+}
+
